@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController" fx:id="mainPane" prefHeight="700.0" prefWidth="1024.0">
+    <top>
+        <VBox>
+            <Label fx:id="appTitleLabel" text="Gestion de Bibliothèque" styleClass="app-title"/>
+            <MenuBar>
+                <menus>
+                    <Menu text="Fichier">
+                        <items><MenuItem text="Quitter" onAction="#handleExit" /></items>
+                    </Menu>
+                    <Menu text="Livres">
+                        <items>
+                            <MenuItem text="Ajouter un livre" onAction="#showLivres" />
+                            <MenuItem text="Voir tous les livres" onAction="#showLivres" />
+                            <MenuItem text="Rechercher des livres" onAction="#showSearch" />
+                        </items>
+                    </Menu>
+                    <Menu text="Membres">
+                        <items>
+                            <MenuItem text="Inscrire un membre" onAction="#showMembres" />
+                            <MenuItem text="Voir tous les membres" onAction="#showMembres" />
+                        </items>
+                    </Menu>
+                    <Menu text="Aide">
+                        <items>
+                            <MenuItem text="À propos" onAction="#showAbout" />
+                            <MenuItem text="Documentation" onAction="#showDocumentation" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </VBox>
+    </top>
+    <left>
+        <VBox styleClass="sidebar">
+            <Label text="Navigation" styleClass="sidebar-header"/>
+            <Button text="Tableau de bord" onAction="#showDashboard" styleClass="sidebar-button, sidebar-button-active"/>
+            <Button text="Livres" onAction="#showLivres" styleClass="sidebar-button"/>
+            <Button text="Membres" onAction="#showMembres" styleClass="sidebar-button"/>
+            <Button text="Emprunts" onAction="#showEmprunts" styleClass="sidebar-button"/>
+            <javafx.scene.layout.Region VBox.vgrow="ALWAYS" />
+            <Button text="Paramètres" styleClass="sidebar-footer-button" onAction="#showSettings"/>
+        </VBox>
+    </left>
+    <center>
+        <javafx.scene.control.ScrollPane fx:id="contentScrollPane" fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 0;">
+            <!-- Dynamic Content -->
+        </javafx.scene.control.ScrollPane>
+    </center>
+</BorderPane>

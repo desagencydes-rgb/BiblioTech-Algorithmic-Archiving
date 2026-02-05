@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
+    <BorderPane style="-fx-padding: 30;">
+        <center>
+            <VBox spacing="30">
+                
+                <VBox spacing="15">
+                    <Label text="Actions rapides" styleClass="section-title"/>
+                    <HBox spacing="25">
+                        <VBox styleClass="card" alignment="CENTER" spacing="15">
+                            <Label text="📚" styleClass="card-icon"/>
+                            <Label text="Ajouter un livre" styleClass="card-title"/>
+                            <Label text="Enregistrer un nouveau livre dans la bibliothèque" styleClass="card-desc"/>
+                            <Button text="Ajouter" styleClass="button-green" onAction="#handleAjouter"/>
+                        </VBox>
+                        <VBox styleClass="card" alignment="CENTER" spacing="15">
+                            <Label text="👤" styleClass="card-icon"/>
+                            <Label text="Inscrire un membre" styleClass="card-title"/>
+                             <Label text="Ajouter un nouveau membre à la bibliothèque" styleClass="card-desc"/>
+                            <Button text="Inscrire" styleClass="button-green" onAction="#handleInscrire"/>
+                        </VBox>
+                        <VBox styleClass="card" alignment="CENTER" spacing="15">
+                            <Label text="🔍" styleClass="card-icon"/>
+                            <Label text="Rechercher des livres" styleClass="card-title"/>
+                             <Label text="Trouver des livres dans le catalogue" styleClass="card-desc"/>
+                            <Button text="Rechercher" styleClass="button-green" onAction="#handleRechercher"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+    
+                <VBox spacing="15">
+                    <Label text="Activités récentes" styleClass="section-title"/>
+                    <javafx.scene.control.ListView fx:id="activitiesList" styleClass="recent-activity-card" prefHeight="150" style="-fx-border-color: transparent; -fx-background-insets: 0;"/>
+                </VBox>
+            </VBox>
+        </center>
+        <right>
+            <VBox spacing="20" style="-fx-padding: 0 0 0 30;">
+                <Label text="Statistiques" styleClass="section-title" />
+                <VBox styleClass="stat-card">
+                     <Label text="Total de livres" style="-fx-text-fill: #95a5a6;"/>
+                     <Label fx:id="totalBooksLabel" text="-" styleClass="stat-value"/>
+                     <Label text="Dans la collection" styleClass="stat-sub"/>
+                </VBox>
+                 <VBox styleClass="stat-card">
+                     <Label text="Membres actifs" style="-fx-text-fill: #95a5a6;"/>
+                     <Label fx:id="activeMembersLabel" text="-" styleClass="stat-value"/>
+                     <Label text="Utilisateurs inscrits" styleClass="stat-sub"/>
+                </VBox>
+                 <VBox styleClass="stat-card">
+                     <Label text="Emprunts du jour" style="-fx-text-fill: #95a5a6;"/>
+                     <Label fx:id="activeLoansLabel" text="-" styleClass="stat-value"/>
+                     <Label text="Prêts actifs" styleClass="stat-sub"/>
+                </VBox>
+                 <VBox styleClass="stat-card-green">
+                     <Label text="Livres disponibles" style="-fx-text-fill: #95a5a6;"/>
+                     <Label fx:id="availableBooksLabel" text="-" styleClass="stat-value-blue"/> <!-- Using the blue class created -->
+                </VBox>
+            </VBox>
+        </right>
+    </BorderPane>
+
+    <!-- Search Overlay -->
+    <VBox fx:id="searchOverlay" visible="false" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);">
+        <VBox maxWidth="600" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);">
+            <javafx.scene.layout.HBox spacing="10" alignment="CENTER_LEFT">
+                 <Label text="Recherche Rapide" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                 <javafx.scene.layout.Region HBox.hgrow="ALWAYS"/>
+                 <Button text="X" onAction="#closeSearch" style="-fx-background-color: transparent; -fx-text-fill: #999; -fx-font-weight: bold; -fx-cursor: hand;"/>
+            </javafx.scene.layout.HBox>
+            
+            <javafx.scene.control.TextField fx:id="searchField" promptText="Tapez le titre d'un livre..." style="-fx-font-size: 14px; -fx-padding: 10;"/>
+            
+            <javafx.scene.control.ListView fx:id="searchResultsList" prefHeight="200" style="-fx-background-color: transparent;"/>
+        </VBox>
+    </VBox>
+</StackPane>

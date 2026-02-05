@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsController" spacing="30" style="-fx-padding: 40;">
+    
+    <Label text="Paramètres de l'application" styleClass="section-title"/>
+    
+    <VBox spacing="20" styleClass="card" maxWidth="600">
+        <VBox spacing="5">
+            <Label text="Nom de la bibliothèque" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="titleField" promptText="Ex: Ma Bibliothèque" style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Email de contact" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="emailField" promptText="contact@exemple.com" style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
+        </VBox>
+
+        <HBox spacing="20">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Durée du prêt (jours)" style="-fx-font-weight: bold;"/>
+                <Spinner fx:id="loanDaysSpinner" editable="true" style="-fx-padding: 5;"/>
+            </VBox>
+            
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Amende par jour (€)" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="fineField" promptText="0.50" style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
+            </VBox>
+        </HBox>
+        
+        <Button text="Enregistrer les modifications" onAction="#handleSave" styleClass="button-green" style="-fx-padding: 10 20; -fx-font-size: 14px;"/>
+        <Label fx:id="statusLabel" text="" style="-fx-text-fill: green;"/>
+    </VBox>
+
+    <Label text="Configuration Assistant IA" styleClass="section-title"/>
+    
+    <VBox spacing="20" styleClass="card" maxWidth="600">
+        <VBox spacing="5">
+            <Label text="Clé API (OpenAI Compatible)" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="aiApiKeyField" promptText="sk-..." style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
+        </VBox>
+
+        <HBox spacing="20">
+             <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Modèle" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="aiModelField" promptText="gpt-3.5-turbo" style="-fx-padding: 10; -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
+            </VBox>
+
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Max Tokens" style="-fx-font-weight: bold;"/>
+                <Spinner fx:id="aiMaxTokensSpinner" editable="true" style="-fx-padding: 5;"/>
+            </VBox>
+        </HBox>
+
+        <VBox spacing="5">
+            <Label text="Prompt Système (Instructions &amp; Limitations)" style="-fx-font-weight: bold;"/>
+            <javafx.scene.control.TextArea fx:id="aiSystemPromptField" promptText="Définissez le comportement et les limites de l'IA..." prefRowCount="4" wrapText="true" style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
+        </VBox>
+
+        <Button text="Enregistrer Config IA" onAction="#handleSaveAI" style="-fx-background-color: #8e44ad; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-font-size: 14px;"/>
+        <Label fx:id="aiStatusLabel" text="" style="-fx-text-fill: green;"/>
+    </VBox>
+
+</VBox>

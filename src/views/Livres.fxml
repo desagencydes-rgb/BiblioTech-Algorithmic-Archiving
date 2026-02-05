@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LivresController" style="-fx-padding: 20;">
+    <center>
+        <VBox spacing="20" style="-fx-padding: 0 20 0 0;">
+            <VBox>
+                <Label text="Ajouter un nouveau livre" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                <Label text="Informations sur le livre" style="-fx-text-fill: #7f8c8d;"/>
+            </VBox>
+
+            <VBox styleClass="form-card" spacing="20">
+                <GridPane hgap="15" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="100" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints minWidth="80" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+
+                    <!-- Titre -->
+                    <Label text="Titre :" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label"/>
+                    <TextField fx:id="titleField" promptText="Saisir le titre du livre" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="3" styleClass="styled-text-field"/>
+
+                    <!-- Auteur & ISBN -->
+                    <Label text="Auteur :" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label"/>
+                    <TextField fx:id="authorField" promptText="Saisir le nom de l'auteur" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="styled-text-field"/>
+                    
+                    <Label text="ISBN :" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="form-label"/>
+                    <TextField fx:id="isbnField" promptText="Saisir le numéro ISBN" GridPane.columnIndex="3" GridPane.rowIndex="1" styleClass="styled-text-field"/>
+
+                    <!-- Categorie & Date -->
+                    <Label text="Catégorie :" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label"/>
+                    <TextField fx:id="categoryField" promptText="ex: Fiction, Science" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="styled-text-field"/>
+                    
+                    <Label text="Date de publ..." GridPane.columnIndex="2" GridPane.rowIndex="2" styleClass="form-label"/>
+                    <DatePicker fx:id="publishedDate" promptText="Sélectionner la date" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="2" styleClass="styled-text-field"/>
+
+                    <!-- Editeur & Edition -->
+                    <Label text="Éditeur :" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label"/>
+                    <TextField fx:id="publisherField" promptText="Saisir le nom de l'éditeur" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="styled-text-field"/>
+
+                    <Label text="Édition :" GridPane.columnIndex="2" GridPane.rowIndex="3" styleClass="form-label"/>
+                    <TextField fx:id="editionField" promptText="ex: 1ère, 2ème" GridPane.columnIndex="3" GridPane.rowIndex="3" styleClass="styled-text-field"/>
+
+                    <!-- Exemplaires -->
+                    <Label text="Exemplaires :" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="form-label"/>
+                    <TextField fx:id="copiesField" promptText="Nombre d'exemplaires" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="styled-text-field"/>
+                    
+                    <!-- Description -->
+                    <Label text="Description :" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.valignment="TOP" styleClass="form-label"/>
+                    <TextArea fx:id="descriptionArea" promptText="Saisir la description du livre" minHeight="100" prefRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="3" styleClass="text-area"/>
+                </GridPane>
+                
+                <!-- Buttons inside card -->
+                <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 10 0 0 0;">
+                    <Button text="Retour au tableau de bord" onAction="#handleBack" style="-fx-background-color: white; -fx-text-fill: #7f8c8d; -fx-border-color: #bdc3c7; -fx-border-radius: 4; -fx-background-radius: 4; -fx-cursor: hand; -fx-padding: 8 15;"/>
+                    <Button text="Enregistrer" onAction="#handleSave" styleClass="button-green"/>
+                </HBox>
+            </VBox>
+
+            <!-- Books List Component -->
+            <VBox styleClass="form-card" spacing="20" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Liste des livres" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <javafx.scene.layout.Region HBox.hgrow="ALWAYS"/>
+                    <!-- Optional: Search or Filter here in future -->
+                </HBox>
+                
+                <javafx.scene.control.TableView fx:id="booksTable" VBox.vgrow="ALWAYS" styleClass="styled-table">
+                    <columns>
+                        <javafx.scene.control.TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                        <javafx.scene.control.TableColumn fx:id="colTitre" text="Titre" prefWidth="250"/>
+                        <javafx.scene.control.TableColumn fx:id="colAuteur" text="Auteur" prefWidth="200"/>
+                        <javafx.scene.control.TableColumn fx:id="colDisponible" text="Statut" prefWidth="100"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <javafx.scene.control.TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </javafx.scene.control.TableView>
+            </VBox>
+        </VBox>
+    </center>
+    
+    <right>
+        <VBox spacing="20" style="-fx-padding: 0 0 0 20;">
+            <Label text="Statistiques" styleClass="section-title" />
+            <VBox styleClass="stat-card">
+                 <Label text="Total de livres" style="-fx-text-fill: #95a5a6;"/>
+                 <Label fx:id="totalBooksLabel" text="-" styleClass="stat-value"/>
+                 <Label text="Dans la collection" styleClass="stat-sub"/>
+            </VBox>
+             <VBox styleClass="stat-card">
+                 <Label text="Membres actifs" style="-fx-text-fill: #95a5a6;"/>
+                 <Label fx:id="activeMembersLabel" text="-" styleClass="stat-value"/>
+                 <Label text="Utilisateurs inscrits" styleClass="stat-sub"/>
+            </VBox>
+             <VBox styleClass="stat-card">
+                 <Label text="Emprunts du jour" style="-fx-text-fill: #95a5a6;"/>
+                 <Label fx:id="activeLoansLabel" text="-" styleClass="stat-value"/>
+                 <Label text="Prêts actifs" styleClass="stat-sub"/>
+            </VBox>
+             <VBox styleClass="stat-card-green">
+                 <Label text="Livres disponibles" style="-fx-text-fill: #95a5a6;"/>
+                 <Label fx:id="availableBooksLabel" text="-" styleClass="stat-value-blue"/>
+            </VBox>
+        </VBox>
+    </right>
+</BorderPane>

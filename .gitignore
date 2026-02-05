@@ -1,0 +1,17 @@
+# Binary and dependency directories
+bin/
+lib/
+target/
+build/
+out/
+.gradle/
+.idea/
+.vscode/
+*.class
+*.jar
+*.war
+*.ear
+
+# OS specific
+.DS_Store
+Thumbs.db

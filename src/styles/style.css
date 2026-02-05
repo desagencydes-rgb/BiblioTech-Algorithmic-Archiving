@@ -1,0 +1,287 @@
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #f4f6f8;
+}
+
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 20;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #2c3e50;
+    /* Dark Slate Blue */
+    -fx-pref-width: 260;
+    -fx-padding: 0;
+}
+
+.sidebar-header {
+    -fx-text-fill: #bdc3c7;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 20 10 20;
+    -fx-border-color: transparent transparent #34495e transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-insets: 0 20 0 20;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 16px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-pref-width: 260;
+    -fx-padding: 15 25;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 0;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #34495e;
+}
+
+.sidebar-button-active {
+    -fx-background-color: #34495e;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 0 4;
+}
+
+.sidebar-footer {
+    -fx-text-fill: #95a5a6;
+    -fx-padding: 20;
+    -fx-alignment: BOTTOM_LEFT;
+    -fx-border-color: #34495e transparent transparent transparent;
+    -fx-border-width: 2 0 0 0;
+    -fx-border-insets: 0 20 0 20;
+}
+
+.sidebar-footer-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 16px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-pref-width: 260;
+    -fx-padding: 20;
+    -fx-cursor: hand;
+    -fx-border-color: #34495e transparent transparent transparent;
+    -fx-border-width: 2 0 0 0;
+    -fx-border-insets: 0 20 0 20;
+}
+
+.sidebar-footer-button:hover {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+}
+
+/* Dashboard Content */
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 10 0;
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+    -fx-padding: 10 0 15 0;
+}
+
+/* Cards */
+.card {
+    -fx-background-color: white;
+    -fx-padding: 30;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2);
+    -fx-pref-width: 280;
+    -fx-min-height: 250;
+}
+
+/* New General Content Card without fixed sizing constraints */
+.form-card {
+    -fx-background-color: white;
+    -fx-padding: 30;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2);
+    /* No fixed width or height constraints */
+}
+
+.card-icon {
+    -fx-font-size: 48px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-family: "Segoe UI Symbol", "Segoe UI Emoji", "Arial";
+    -fx-padding: 0 0 15 0;
+}
+
+.card-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-text-fill: #2c3e50;
+}
+
+.card-desc {
+    -fx-text-fill: #7f8c8d;
+    -fx-wrap-text: true;
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 20 0;
+}
+
+.button-green {
+    -fx-background-color: #1abc9c;
+    /* Emerald */
+    -fx-text-fill: white;
+    -fx-padding: 10 30;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.button-green:hover {
+    -fx-background-color: #16a085;
+}
+
+/* Recent Activity */
+.recent-activity-card {
+    -fx-background-color: white;
+    -fx-padding: 25;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 1);
+}
+
+.activity-item {
+    -fx-padding: 10 0;
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+    -fx-graphic-text-gap: 15;
+}
+
+/* Stats */
+.stat-card {
+    -fx-background-color: white;
+    -fx-padding: 25;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 1);
+    -fx-pref-width: 240;
+    -fx-min-height: 120;
+}
+
+.stat-value {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1abc9c;
+}
+
+.stat-sub {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 13px;
+    -fx-padding: 5 0 0 0;
+}
+
+/* Green Stats Card (Livres Disponibles) */
+.stat-card-green {
+    -fx-background-color: #e8f8f5;
+    -fx-padding: 25;
+    -fx-background-radius: 8;
+    -fx-border-color: #1abc9c;
+    -fx-border-width: 1;
+    -fx-pref-width: 240;
+    -fx-min-height: 120;
+}
+
+.stat-value-green {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2980b9;
+}
+
+.stat-value-blue {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3498db;
+}
+
+/* --- Added for Livres Page Styling --- */
+
+/* Form Inputs */
+.styled-text-field,
+.text-area,
+.date-picker>.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+.styled-text-field:focused,
+.text-area:focused,
+.date-picker:focused>.text-field {
+    -fx-border-color: #1abc9c;
+    -fx-effect: dropshadow(gaussian, rgba(26, 188, 156, 0.2), 5, 0, 0, 0);
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+}
+
+/* Table View */
+.styled-table {
+    -fx-background-color: white;
+    -fx-table-cell-border-color: transparent;
+    -fx-font-size: 14px;
+}
+
+.styled-table .column-header-background {
+    -fx-background-color: #2c3e50;
+    /* Header Background Color */
+    -fx-background-insets: 0;
+}
+
+.styled-table .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 45px;
+    /* Header Height */
+}
+
+.styled-table .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.styled-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #ecf0f1 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5;
+}
+
+.styled-table .table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+.styled-table .table-row-cell:hover {
+    -fx-background-color: #f7f9f9;
+}
+
+.styled-table .table-row-cell:selected {
+    -fx-background-color: #e8f8f5;
+    /* Light Green selection background */
+    -fx-table-cell-border-color: transparent;
+}
+
+.styled-table .table-row-cell:selected .text {
+    -fx-fill: #2c3e50;
+}
